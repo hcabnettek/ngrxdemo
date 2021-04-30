@@ -1,0 +1,9 @@
+<p>List of Starwars People!</p>
+
+<ng-container *ngIf="people$ | async as people">
+  <ul>
+    <li *ngFor="let person of people">
+      {{person.name}}
+    </li>
+  </ul>
+</ng-container>

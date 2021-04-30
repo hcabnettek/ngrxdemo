@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "starwarsapi"
+  "defaultProject": "starwarsapi",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
