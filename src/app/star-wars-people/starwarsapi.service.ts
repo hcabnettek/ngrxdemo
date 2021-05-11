@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Observable, OperatorFunction } from 'rxjs';
 import { tap, catchError, map } from 'rxjs/operators';
-import { SWResult, StarWarsPerson} from '../types/sw';
-import { StarWarsPerson as model } from './models/star-wars-person';
+import { SWResult, StarWarsPerson} from '../../types/sw';
 
 
 @Injectable({

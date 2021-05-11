@@ -9,3 +9,13 @@ export const selectStarWars = createSelector(
   selectStarWarsState,
   (state: fromStarWars.StarWarsState) => state.people
 );
+
+export const getPeople = createSelector(
+  selectStarWarsState,
+  (state: fromStarWars.StarWarsState) => state.people
+);
+
+export const getError = createSelector(
+  selectStarWarsState,
+  (state: fromStarWars.StarWarsState) => state.people
+);
