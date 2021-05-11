@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Observable} from 'rxjs';
-// import { StarwarsapiService } from '../star-wars-people/starwarsapi.service';
+import { IGraphQLWS, GraphQLWS, Client } from '../star-wars-people/ws.provider';
 import { SWResult, People, StarWarsPerson} from '../../types/sw';
 
 import { Store } from '@ngrx/store';
@@ -17,12 +17,38 @@ export class StarWarsListComponent  implements OnInit {
   pageTitle = 'Products';
   errorMessage$: Observable<string>;
   people$: Observable<StarWarsPerson[]>;
+  channels: any;
+  client: Client;
 
-  constructor(private store: Store<StarWarsState>) { }
+  constructor(private store: Store<StarWarsState>, @Inject(GraphQLWS) public graphqlWs: IGraphQLWS) { }
 
   ngOnInit(): void {
     this.people$ = this.store.select(getPeople);
     this.store.dispatch(StarWarsActions.loadStarWars());
+
+    this.client = this.graphqlWs.createClient({
+      url: 'ws://localhost:8443/graphql',
+    });
+    this.getChannels();
+  }
+
+  getChannels(): void {
+    const result = new Promise((resolve, reject) => {
+      // tslint:disable-next-line: no-shadowed-variable
+      let result;
+      this.client.subscribe({
+        query: 'query GetChannels { channels { id, name } }',
+      },
+      {
+        next: (data) => (result = data),
+        error: reject,
+        complete: () => resolve(result),
+      });
+    });
+
+    result
+          .then(({data: { channels }}) => this.channels = channels)
+          .catch(e => console.log(e));
   }
 
 }

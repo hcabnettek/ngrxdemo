@@ -7,6 +7,7 @@ import { StarWarsEffects } from './store/effects/starwarspeople.effects';
 import {starwarsFeatureKey, reducer} from './store/reducer/people.reducer';
 import { StarWarsListComponent } from '../star-wars-list/star-wars-list.component';
 import { StarwarsapiService } from './starwarsapi.service';
+import { GraphQLWSProvider } from './ws.provider';
 
 const starwarsRoutes: Routes = [
   { path: '', component: StarWarsListComponent }
@@ -17,7 +18,8 @@ const starwarsRoutes: Routes = [
     StarWarsListComponent
   ],
   providers: [
-    StarwarsapiService
+    StarwarsapiService,
+    GraphQLWSProvider
   ],
   imports: [
     CommonModule,

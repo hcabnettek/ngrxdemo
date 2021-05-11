@@ -7,3 +7,11 @@
     </li>
   </ul>
 </ng-container>
+
+<ng-container *ngIf="channels">
+  <select>
+    <option *ngFor="let channel of channels" [value]="channel.id" >
+      {{channel.name}}
+    </option>
+  </select>
+</ng-container>
