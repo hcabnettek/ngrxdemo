@@ -1,6 +1,7 @@
 <p>List of Starwars People!</p>
-
+<hr>
 <ng-container *ngIf="people$ | async as people">
+  <section class="card-container"></section>
   <ul>
     <li *ngFor="let person of people">
       {{person.name}}

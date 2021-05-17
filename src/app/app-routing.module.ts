@@ -14,6 +14,12 @@ const appRoutes: Routes = [
         loadChildren: () =>
           import('./star-wars-people/star-wars-people.module').then(m => m.StarWarsPeopleModule)
       },
+      {
+        path: 'projection',
+        // canActivate: [AuthGuard],
+        loadChildren: () =>
+          import('./content-projection/content-projection.module').then(m => m.ContentProjectionModule)
+      },
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
     ]
   },

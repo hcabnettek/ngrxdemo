@@ -1,0 +1,10 @@
+:host {
+  padding: 1rem;
+  border: 1px solid black;
+  background-color: hsl(271, 76%, 53%, 60%);
+  grid-area: main;
+}
+
+.card-container {
+  display: grid;
+}

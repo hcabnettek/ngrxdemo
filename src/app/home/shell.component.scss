@@ -1,0 +1,34 @@
+.main-content {
+  display: grid;
+  height: 100vh;
+  grid-template-areas:
+  "head head head head"
+  "aside main main main"
+  "aside main main main"
+  "aside main main main"
+  "aside main main main"
+  "foot foot foot foot";
+  grid-template-columns: 13rem auto;
+  grid-template-rows: 3rem repeat(4, auto) 3rem;
+}
+
+.main-section {
+  grid-area: main;
+}
+
+header {
+  grid-area: head;
+  min-height: 2rem;
+  background-color: brown;
+}
+
+.nav-section {
+  width: 13rem;
+  background-color: red;
+  grid-area: aside;
+}
+
+footer {
+  grid-area: foot;
+  background-color: chartreuse;
+}
