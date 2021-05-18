@@ -2,14 +2,12 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-content-basic',
-  templateUrl: './content-basic.component.html',
+  template: `
+    <h2>Single-slot content projection</h2>
+    <ng-content></ng-content>
+  `,
   styleUrls: ['./content-basic.component.scss']
 })
-export class ContentBasicComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+export class ContentBasicComponent {
 
 }

@@ -1,10 +1,10 @@
-import { Directive } from '@angular/core';
+import { Directive, TemplateRef } from '@angular/core';
 
 @Directive({
   selector: '[appProjectContent]'
 })
 export class ProjectContentDirective {
 
-  constructor() { }
+  constructor(public templateRef: TemplateRef<unknown>) { }
 
 }
