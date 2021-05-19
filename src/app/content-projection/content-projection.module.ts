@@ -7,6 +7,7 @@ import { ContentMultislotComponent } from './content-multislot/content-multislot
 import { ContentBasicComponent } from './content-basic/content-basic.component';
 import { ContentTemplateComponent } from './content-template/content-template.component';
 import { ProjectContentDirective } from './project-content/project-content.directive';
+import { CdkPortalOverviewExampleComponent } from './cdk-portal-overview-example/cdk-portal-overview-example.component';
 
 const contentProjectionRoutes: Routes = [
   { path: '', component: ContentBasicComponent },
@@ -19,7 +20,8 @@ const contentProjectionRoutes: Routes = [
     ContentMultislotComponent,
     ContentBasicComponent,
     ContentTemplateComponent,
-    ProjectContentDirective
+    ProjectContentDirective,
+    CdkPortalOverviewExampleComponent
   ],
   imports: [
     CommonModule,
